@@ -1,16 +1,16 @@
 ﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mfpecustomerapi-deployment
+  name: mfpe_customerapi-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: Mfpecustomerapi
+      app: Mfpe_customerapi
   template:
     metadata:
       labels:
-        app: Mfpecustomerapi
+        app: Mfpe_customerapi
     spec:
       containers:
       - name: mfpecustomerapirepos
@@ -24,10 +24,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mfpecustomerapi
+  name: mfpe_customerapi
 spec:
   type: LoadBalancer
   ports:
   - port: 80
   selector:
-    app: Mfpecustomerapi
+    app: Mfpe_customerapi
