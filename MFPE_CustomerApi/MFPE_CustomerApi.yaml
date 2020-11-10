@@ -1,20 +1,20 @@
 ﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mfpecustomerapi-deployment
+  name: mfpecustomerapi1-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: Mfpecustomerapi
+      app: Mfpecustomerapi1
   template:
     metadata:
       labels:
-        app: Mfpecustomerapi
+        app: Mfpecustomerapi1
     spec:
       containers:
-      - name: mfpecustomerapirepos
-        image: anujretailbankingcr.azurecr.io/mfpecustomerapirepos:latest
+      - name: mfpecustomerapirepos1
+        image: anujretailbankingcr.azurecr.io/mfpecustomerapirepos1:latest
         ports:
         - containerPort: 8080
       imagePullSecrets:
@@ -24,10 +24,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mfpecustomerapi
+  name: mfpecustomerapi1
 spec:
   type: LoadBalancer
   ports:
   - port: 80
   selector:
-    app: Mfpecustomerapi
+    app: Mfpecustomerapi1
