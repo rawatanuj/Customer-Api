@@ -1,33 +1,33 @@
 ﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mfpe_customerapi-deployment
+  name: mfpecustomerapi1-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: MFPE_CustomerApi
+      app: Mfpecustomerapi1
   template:
     metadata:
       labels:
-        app: MFPE_CustomerApi
+        app: Mfpecustomerapi1
     spec:
       containers:
-      - name: MFPE_CustomerApirepos
-        image: retail_banking_system_cr.azurecr.io/MFPE_CustomerApirepos:latest
+      - name: mfpecustomerapirepos1
+        image: anujretailbankingcr.azurecr.io/mfpecustomerapirepos1:latest
         ports:
         - containerPort: 8080
       imagePullSecrets:
-      - name: dsconfigsn
+      - name: dsconfigsn2
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mfpe_customerapi
+  name: mfpecustomerapi1
 spec:
   type: LoadBalancer
   ports:
   - port: 80
   selector:
-    app: MFPE_CustomerApi
+    app: Mfpecustomerapi1
