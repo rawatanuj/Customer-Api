@@ -35,7 +35,7 @@ namespace MFPE_CustomerApi.Provider
                     {
                         _log4net.Info("Customer Id has been successfully created");
                         var client = new HttpClient();
-                        client.BaseAddress = new Uri("http://20.62.139.7");
+                        client.BaseAddress = new Uri("http://40.88.220.221");
                         HttpResponseMessage response1 = client.PostAsJsonAsync("api/Account/createAccount", new { CustomerId = Convert.ToInt32(model.CustomerId) }).Result;
                         if(response1.StatusCode == System.Net.HttpStatusCode.InternalServerError)
                         {
